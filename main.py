@@ -15,10 +15,7 @@ JOKE = (
 
 
 def main() -> int:
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR")
-    if not out_dir:
-        print("MAKEFUN_OUTPUT_DIR is not set", file=sys.stderr)
-        return 2
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output"
 
     if not (1 <= len(JOKE) <= 280) or not JOKE.strip():
         print("joke must be 1 to 280 characters and not only whitespace", file=sys.stderr)
